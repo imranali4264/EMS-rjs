@@ -1,0 +1,33 @@
+#employeeListing {
+  .title {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  .employee-detail-link {
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  /* SINGLE CARD STYLES*/
+  .ems-card {
+    border: none;
+
+    .card {
+      padding-top: 8px;
+
+      .card-title {
+        font-size: 19px;
+        margin: 3px 0;
+      }
+
+      .card-text {
+        font-size: 14px;
+        font-weight: 300;
+        color: #7e7e7e;
+        margin-bottom: 0;
+      }
+    }
+  }
+}
