@@ -1,0 +1,51 @@
+{
+  "employees": [
+    {
+      "empName": "imran",
+      "designation": "Web Developer",
+      "salary": 50000,
+      "image": "http://via.placeholder.com/350x250",
+      "description": "this is imran."
+    },
+    {
+      "empName": "haniya",
+      "designation": "graphic Designer",
+      "salary": 40000,
+      "image": "http://via.placeholder.com/350x250",
+      "description": "this is haniya."
+    },
+    {
+      "empName": "ahsan",
+      "designation": "data analyst",
+      "salary": 60000,
+      "image": "http://via.placeholder.com/350x250",
+      "description": "this is ahsan."
+    },
+    {
+      "empName": "tabish",
+      "designation": "software engineer",
+      "salary": 87000,
+      "image": "http://via.placeholder.com/350x250",
+      "description": "this is tabish."
+    },
+    {
+      "empName": "haris",
+      "designation": "software engineer",
+      "salary": 80000,
+      "image": "http://via.placeholder.com/350x250",
+      "description": "this is haris."
+    }
+  ],
+  "users": [
+    {
+      "username": "imran",
+      "email": "imran@example.com",
+      "password": "123456"
+    },
+    {
+      "username": "ahsan",
+      "email": "ahsan@example.com",
+      "password": "123456"
+    }
+  ]
+}
