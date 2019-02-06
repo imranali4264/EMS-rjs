@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { toUpperCase } from "../../../helper/index";
 
 import * as actions from "actions";
 
@@ -11,14 +12,26 @@ class EmployeeDetail extends Component {
   }
   render() {
     const employee = this.props.employee;
-    if (employee.id) {
+    if (employee._id) {
       return (
-        <div>
-          <h1>{employee.empName}</h1>
-          <h1>{employee.designation}</h1>
-          <h1>{employee.salary}</h1>
-          <h1>{employee.description}</h1>
-        </div>
+        <section id="employeeDetail">
+          <img src={employee.image} class="emp-card-img-top" alt="..." />
+          <div class="employee-card">
+            <div class="card-body">
+              <h5 class="card-title ">{toUpperCase(employee.empName)}</h5>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                {toUpperCase(employee.designation)}
+              </li>
+              <li class="list-group-item">{employee.salary}</li>
+              <li class="list-group-item">{employee.description}</li>
+            </ul>
+            <div class="card-bottom">
+              <p>Created At</p>
+            </div>
+          </div>
+        </section>
       );
     } else {
       return <h1>Loading...</h1>;

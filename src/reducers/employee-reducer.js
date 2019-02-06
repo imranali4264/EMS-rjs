@@ -1,7 +1,8 @@
 import {
   FETCH_EMPLOYEES,
   FETCH_EMPLOYEE_BY_ID_SUCCESS,
-  FETCH_EMPLOYEE_BY_ID_INIT
+  FETCH_EMPLOYEE_BY_ID_INIT,
+  FETCH_EMPLOYEES_SUCCESS
 } from "../actions/types";
 
 const INITIAL_STATE = {
@@ -14,7 +15,7 @@ const INITIAL_STATE = {
 };
 export const employeeReducer = (state = INITIAL_STATE.employees, action) => {
   switch (action.type) {
-    case FETCH_EMPLOYEES:
+    case FETCH_EMPLOYEES_SUCCESS:
       return { ...state, data: action.employees };
     default:
       return state;

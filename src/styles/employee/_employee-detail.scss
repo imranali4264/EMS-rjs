@@ -1,0 +1,23 @@
+.emp-card-img-top {
+  width: 350px;
+  height: 300px;
+}
+.employee-card {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  word-wrap: break-word;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  width: 800px;
+  margin-top: 20px;
+  margin-bottom: 4px;
+}
+.card-bottom {
+  text-align: center;
+  flex: 1 1 auto;
+  padding: 0.7rem;
+}

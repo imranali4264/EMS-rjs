@@ -23,16 +23,10 @@ const userSchema = new Schema({
     max: [32, "too long,character between 4 to 32"],
     required: "Password is required"
   },
-  rentals: [
+  employees: [
     {
       type: Schema.Types.ObjectId,
-      ref: "Rental"
-    }
-  ],
-  bookings: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Booking"
+      ref: "Employee"
     }
   ]
 });
