@@ -112,5 +112,9 @@ router.get("/", (req, res) => {
     res.json(foundEmployees);
   });
 });
+// const minSalary = req.query.salary;
+// const maxSalary = req.query.salary;
+// const query2 = salary ? { salary } : {};
+// const salary = req.query.salary;
 
 module.exports = router;
