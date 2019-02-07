@@ -1,10 +1,33 @@
 @import "variables.scss";
 @import "header/header.scss";
+@import "form/form.scss";
+
 @import "employee/employee-listing.scss";
-@import "employee/employee-detail";
+@import "employee/employee-detail.scss";
+
+.clickable {
+  &:hover {
+    cursor: pointer;
+  }
+}
 
 .page-title {
   font-size: 30px;
   font-weight: 700;
   margin-bottom: 20px;
+}
+
+.btn-ems {
+  background-color: $main-color;
+  border-color: $main-color;
+  color: white;
+  padding: 15px 30px;
+  font-size: 20px;
+
+  &:hover,
+  &:focus,
+  &:active {
+    border-collapse: $main-color !important;
+    background-color: $main-color !important;
+  }
 }
