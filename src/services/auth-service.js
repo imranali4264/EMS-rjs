@@ -19,6 +19,9 @@ class AuthService {
     const exp = jwt.decode(token).exp;
     return moment.unix(exp);
   }
+  getUsername() {
+    return this.decode(this.getToken()).username;
+  }
   isValid(token) {
     return moment().isBefore(this.getExpireTime(token));
   }

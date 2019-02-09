@@ -91,7 +91,7 @@ router.post("", UserControl.loginMiddleware, (req, res) => {
 });
 
 //get all employees and search employees with query for employee name
-router.get("/", (req, res) => {
+router.get("", (req, res) => {
   const empName = req.query.empName;
   const query = empName ? { empName: empName.toLowerCase() } : {};
 

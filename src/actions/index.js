@@ -6,6 +6,8 @@ import {
   FETCH_EMPLOYEE_BY_ID_SUCCESS,
   FETCH_EMPLOYEE_BY_ID_INIT,
   FETCH_EMPLOYEES_SUCCESS,
+  FETCH_EMPLOYEES_INIT,
+  FETCH_EMPLOYEES_FAILURE,
   LOGIN_SUCCESS,
   LOGIN_FAILURE,
   LOGOUT
@@ -32,14 +34,30 @@ const fetchEmployeesSuccess = employees => {
     employees
   };
 };
-export const fetchEmployees = () => {
+
+const fetchEmployeesInit = () => {
+  return {
+    type: FETCH_EMPLOYEES_INIT
+  };
+};
+const fetchEmployeesFailure = errors => {
+  return {
+    type: FETCH_EMPLOYEES_FAILURE,
+    errors
+  };
+};
+export const fetchEmployees = empName => {
+  const url = empName ? `/employees?empName=${empName}` : "/employees";
   return dispatch => {
+    dispatch(fetchEmployeesInit());
+
     axiosInstance
-      .get("/employees")
+      .get(url)
       .then(res => res.data)
-      .then(employees => {
-        dispatch(fetchEmployeesSuccess(employees));
-      });
+      .then(employees => dispatch(fetchEmployeesSuccess(employees)))
+      .catch(({ response }) =>
+        dispatch(fetchEmployeesFailure(response.data.errors))
+      );
   };
 };
 
@@ -49,17 +67,22 @@ export const fetchEmployeeById = employeeId => {
     axios
       .get(`/api/employees/${employeeId}`)
       .then(res => res.data)
-      .then(employee => {
-        dispatch(fetchEmployeeByIdSuccess(employee));
-      });
+      .then(employee => dispatch(fetchEmployeeByIdSuccess(employee)));
   };
+};
+export const createEmployee = employeeData => {
+  return axiosInstance
+    .post("/employees", { ...employeeData })
+    .then(res => res.data, err => Promise.reject(err.response.data.errors));
 };
 
 // -------------------------Authentication------------------
 
 const loginSuccess = () => {
+  const username = authService.getUsername();
   return {
-    type: LOGIN_SUCCESS
+    type: LOGIN_SUCCESS,
+    username
   };
 };
 
