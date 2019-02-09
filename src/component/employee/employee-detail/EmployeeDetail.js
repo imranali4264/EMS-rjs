@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { toUpperCase } from "../../../helper/index";
+import { toUpperCase, pretifyDate } from "../../../helper/index";
 
 import * as actions from "actions";
 
@@ -10,25 +10,32 @@ class EmployeeDetail extends Component {
     const employeeId = this.props.match.params.id;
     this.props.dispatch(actions.fetchEmployeeById(employeeId));
   }
+
   render() {
     const employee = this.props.employee;
     if (employee._id) {
       return (
         <section id="employeeDetail">
-          <img src={employee.image} class="emp-card-img-top" alt="..." />
-          <div class="employee-card">
-            <div class="card-body">
-              <h5 class="card-title ">{toUpperCase(employee.empName)}</h5>
+          <img src={employee.image} className="emp-card-img-top" alt="..." />
+          <div className="employee-card">
+            <div className="card-body">
+              <h5 className="card-title ">
+                <p>Name : {toUpperCase(employee.empName)} </p>
+              </h5>
             </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">
-                {toUpperCase(employee.designation)}
+            <ul className="list-group list-group-flush">
+              <li className="list-group-item">
+                <p>Designation : {toUpperCase(employee.designation)} </p>
               </li>
-              <li class="list-group-item">{employee.salary}</li>
-              <li class="list-group-item">{employee.description}</li>
+              <li className="list-group-item">
+                <p>Salary : {employee.salary}</p>
+              </li>
+              <li className="list-group-item">
+                <p>Description : {employee.description} </p>
+              </li>
             </ul>
-            <div class="card-bottom">
-              <p>Created At</p>
+            <div className="card-bottom">
+              <p>Created At : {pretifyDate(employee.createdAt)}</p>
             </div>
           </div>
         </section>

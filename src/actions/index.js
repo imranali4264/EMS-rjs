@@ -54,9 +54,9 @@ export const fetchEmployees = empName => {
     axiosInstance
       .get(url)
       .then(res => res.data)
-      .then(employees => dispatch(fetchEmployeesSuccess(employees)))
-      .catch(({ response }) =>
-        dispatch(fetchEmployeesFailure(response.data.errors))
+      .then(
+        employees => dispatch(fetchEmployeesSuccess(employees)),
+        err => Promise.reject(err.response.data.errors)
       );
   };
 };
@@ -73,6 +73,19 @@ export const fetchEmployeeById = employeeId => {
 export const createEmployee = employeeData => {
   return axiosInstance
     .post("/employees", { ...employeeData })
+    .then(res => res.data, err => Promise.reject(err.response.data.errors));
+};
+
+// -------------------------User actions------------------
+export const getUserEmployees = () => {
+  return axiosInstance
+    .get(`/employees/manage`)
+    .then(res => res.data, err => Promise.reject(err.response.data.errors));
+};
+
+export const deleteEmployee = employeeId => {
+  return axiosInstance
+    .delete(`/employees/${employeeId}`)
     .then(res => res.data, err => Promise.reject(err.response.data.errors));
 };
 

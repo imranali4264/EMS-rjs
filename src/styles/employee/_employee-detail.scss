@@ -2,6 +2,10 @@
   width: 350px;
   height: 300px;
 }
+
+.toBeDeleted {
+  border-color: red !important;
+}
 .employee-card {
   position: relative;
   display: -ms-flexbox;
@@ -20,4 +24,12 @@
   text-align: center;
   flex: 1 1 auto;
   padding: 0.7rem;
+}
+.delete-menu {
+  margin-top: 5px;
+}
+.btn-danger,
+.btn-success {
+  margin-left: 10px;
+  font-size: 14px;
 }
