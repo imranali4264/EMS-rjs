@@ -52,24 +52,6 @@ const EmployeeCreateForm = props => {
   );
 };
 
-const validate = values => {
-  const errors = {};
-  if (values.username && values.username.length < 4) {
-    errors.username = "Username must be more than 4 character";
-  }
-  if (!values.email) {
-    errors.email = "Please enter valid email";
-  }
-  if (!values.passwordConfirmation) {
-    errors.passwordConfirmation = "Please enter confirm password";
-  }
-  if (values.password !== values.passwordConfirmation) {
-    errors.password = "password must be the same";
-  }
-  return errors;
-};
-
 export default reduxForm({
-  form: "employeeCreateForm",
-  validate
+  form: "employeeCreateForm"
 })(EmployeeCreateForm);

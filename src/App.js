@@ -10,6 +10,7 @@ import EmployeeCreate from "./component/employee/employee-create/EmployeeCreate"
 import Login from "./component/login/Login";
 import { Register } from "./component/register/Register";
 import EmployeeSearch from "./component/employee/employee-listing//EmployeeSearch";
+import { EmployeeManage } from "./component/employee/employee-manage/EmployeeManage";
 
 import { ProtectedRoute } from "./component/shared/auth/ProtectedRoute";
 import { LoggedInRoute } from "./component/shared/auth/LoggedInRoute";
@@ -49,6 +50,11 @@ class App extends Component {
                   exact
                   path="/employees/:empName/q"
                   component={EmployeeSearch}
+                />
+                <ProtectedRoute
+                  exact
+                  path="/employees/manage/"
+                  component={EmployeeManage}
                 />
                 <ProtectedRoute
                   exact

@@ -40,9 +40,7 @@ class Login extends Component {
             </div>
             <div className="col-md-6 ml-auto">
               <div className="image-container">
-                <h2 className="catchphrase">
-                  Hundreds of awesome places in reach of few clicks.
-                </h2>
+                <h2 className="catchphrase">Handle Employees Please Login!</h2>
                 <img src={process.env.PUBLIC_URL + "/img/1.jpg"} alt="" />
               </div>
             </div>

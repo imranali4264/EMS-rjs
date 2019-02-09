@@ -40,10 +40,7 @@ export class Register extends Component {
             </div>
             <div className="col-md-6 ml-auto">
               <div className="image-container">
-                <h2 className="catchphrase">
-                  As our member you have access to most awesome places in the
-                  world.
-                </h2>
+                <h2 className="catchphrase">Create Employees and Handle!</h2>
                 <img src={process.env.PUBLIC_URL + "/img/1.jpg"} alt="" />
               </div>
             </div>

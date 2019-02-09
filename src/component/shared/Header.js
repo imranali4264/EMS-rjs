@@ -55,7 +55,7 @@ class Header extends Component {
             <Link className="dropdown-item" to="/employees/create">
               Create Employee
             </Link>
-            <Link className="dropdown-item" to="#">
+            <Link className="dropdown-item" to="/employees/manage">
               Manage Employees
             </Link>
           </div>

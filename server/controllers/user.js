@@ -14,7 +14,7 @@ exports.login = (req, res) => {
   }
   User.findOne({ email }, (err, user) => {
     if (err) {
-      return res.status(422).send({ errors: mongoErrors(err, errors) });
+      return res.status(422).send({ errors: mongoErrors(err.errors) });
     }
     if (!user) {
       return res.status(422).send({
@@ -84,7 +84,7 @@ exports.loginMiddleware = (req, res, next) => {
     const user = parseToken(token);
     User.findById(user.userId, err => {
       if (err) {
-        return res.status(422).send({ errors: mongoErrors(err, errors) });
+        return res.status(422).send({ errors: mongoErrors(err.errors) });
       }
       if (user) {
         res.locals.user = user;
