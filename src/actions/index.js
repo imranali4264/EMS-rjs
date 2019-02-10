@@ -54,10 +54,8 @@ export const fetchEmployees = empName => {
     axiosInstance
       .get(url)
       .then(res => res.data)
-      .then(
-        employees => dispatch(fetchEmployeesSuccess(employees)),
-        err => Promise.reject(err.response.data.errors)
-      );
+      .then(employees => dispatch(fetchEmployeesSuccess(employees)))
+      .catch(err => dispatch(fetchEmployeesFailure(err.response.data.errors)));
   };
 };
 
